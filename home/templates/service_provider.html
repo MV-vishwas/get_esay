@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Provider</title>
+</head>
+<body>
+    {% extends 'base_template.html' %}
+    {% block body %}
+    {% if service_name.service_provider_set.all %}
+        {% for worker in service_name.service_provider_set.all %}
+            <ol>
+                <li>
+            <strong>{{ worker.name }}</strong></li>
+            <li><strong>{{ worker.address }}</strong></li>
+            </ol>
+        {% endfor %}
+    {% else %}
+       <h5>not available </h5>
+    {% endif %}
+    {% endblock body %}
+</body>
+</html>
